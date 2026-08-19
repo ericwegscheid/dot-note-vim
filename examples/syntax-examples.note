@@ -5,7 +5,7 @@
 ## Titles
 
 ## This whole line is a title
-    ## Titles may be indented and still match
+  ## Titles may be indented and still match
 
 ## Lists
 
@@ -32,9 +32,8 @@ Emphasis markers also render as bare punctuation when not paired: * ~ ` $ # ! ^ 
 
 Three consecutive characters on their own act as a horizontal rule:
 
-~~~
----
 ===
+~~~
 ***
 
 ## Fenced code blocks

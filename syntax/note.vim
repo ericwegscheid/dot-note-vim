@@ -95,7 +95,7 @@ syn match noteLineTilde          /\~\~\~/
 hi link noteLineTilde            SubBlue
 
 syn match noteLineDashed         /\-\-\-/
-hi link noteLineDashed           Red
+hi link noteLineDashed           Yellow
 
 syn match noteLineEquals         /===/
 hi link noteLineEquals           SubCyan
@@ -108,11 +108,11 @@ syn region noteCodeBlock start=/```/ end=/```/ keepend
 hi link noteCodeBlock       Green
 
 syn region noteComment start=/\/\*\*/ end=/\*\*\//   contains=noteTodo
-hi link noteComment       Yellow
+hi link noteComment       SubGreen
 
 " special
-syn match noteTitle            /^\s*\#\#.*$/
-hi link noteTitle              Red
+" syn match noteTitle            /^\s*\#\#.*$/
+" hi link noteTitle              Red
 
 
 " syn match noteGroupTitle            /^\s*\#\#\s*[a-z]\+/
@@ -123,9 +123,7 @@ hi link noteTitle              Red
 syn match noteUrl            /\(https\?\):\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
 hi link noteUrl              SubMagenta
 
-" TODO i have no idea why this doesn't work - very annoying - maybe i should
-" switch to neovim
-syn match noteLink            /\(file\):\/\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
+syn match noteLink            /\(file\):\/\/\/[a-z0-9\-\.\/]\+/
 hi link noteLink              SubMagenta
 
 syn match noteCommentLine     /^\s*\/\/.*$/   contains=noteTodo
