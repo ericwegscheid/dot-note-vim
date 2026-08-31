@@ -1,0 +1,103 @@
+// This file exhaustively demonstrates every construct handled by
+// syntax/note.vim, ftplugin/note.vim, and autoload/note.vim. Open it with
+// the plugin installed to see each group highlighted.
+
+## Titles
+
+## This whole line is a title
+  ## Titles may be indented and still match
+
+## Lists
+
+- dash item
+* star item
++ plus item
+  - nested dash item
+    * nested star item
+
+## Inline emphasis
+
+*bold text*
+~strikethrough text~
+`inline code`
+$highlighted text$
+#alert text#
+!warning text!
+^flagged text^
+%percent text%
+
+Emphasis markers also render as bare punctuation when not paired: * ~ ` $ # ! ^ %
+
+## Line breaks
+
+Three consecutive characters on their own act as a horizontal rule:
+
+===
+~~~
+***
+
+## Fenced code blocks
+
+```
+this text is not otherwise processed for note syntax
+it can span multiple lines
+```
+
+## Comments
+
+/** a block comment, can span multiple lines and contains TODO markers **/
+
+// a line comment, also contains a TODO marker
+
+## Links
+
+http://example.com
+https://example.com/path?query=1
+file:///Users/example/notes/todo.note
+
+## Arrows
+
+start --> end
+end <-- start
+
+## TODO markers
+
+TODO this line contains a bare TODO marker, highlighted anywhere it appears
+
+## Checklists (plain text convention, no dedicated syntax group)
+
+[ ] unchecked
+[x] checked
+[-] in progress
+
+## Blocks
+
+Blocks are titled regions delimited by a matching bracket pair, a colon,
+and an opening brace, closed by a bare `}`. Fold them all with `za`
+(bound to note#squish()) and unfold them all with `zoa`
+(note#unsquish()).
+
+[a bracket-titled block]: {
+  content inside a bracket block
+}
+
+<an angle-titled block>: {
+  content inside an angle block
+}
+
+(a paren-titled block): {
+  content inside a paren block
+}
+
+[a block title | with a pipe separator](and a paren aside) <and an angle aside>: {
+  block titles may mix delimiter types and inline emphasis like *this* or `this`
+}
+
+[nested blocks]: {
+  [outer]: {
+    * list item inside outer
+    [inner]: {
+      * list item inside inner
+    }
+  }
+}
