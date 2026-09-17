@@ -36,16 +36,16 @@ syn match noteTodo             /TODO/
 hi link noteTodo               Red
 
 syn match noteBrackets         /\[\|\]/
-hi link noteBrackets           SubBlue
+hi link noteBrackets           Blue
 
 syn match noteBraces           /{\|}/
-hi link noteBraces             SubBlue
+hi link noteBraces             Blue
 
 syn match noteAngles           /<\|>/
-hi link noteAngles             SubBlue
+hi link noteAngles             Blue
 
 syn match noteParens           /(\|)/
-hi link noteParens             SubBlue
+hi link noteParens             Blue
 
 syn match notePipe             /|/
 hi link notePipe               SubBlue
@@ -54,23 +54,18 @@ syn match noteListItem         /^\s*[-*+]\s\+/
 hi link noteListItem           Magenta
 
 " oneline groups
-syn match noteTilde            /\~/
-hi link noteTilde              SubBlue
-syn match noteTildes            /\~\([^\~]\{-}\)\~/
-hi link noteTildes             SubBlue
 
-syn match noteDollar            /\$/
-hi link noteDollar             SubGreen
-syn match noteDollars           /\$\([^\$]\{-}\)\$/
-hi link noteDollars             SubGreen
+syn match noteTildes             /\~\([^\~]\{-}\)\~/
+hi link noteTildes               SubBlue
 
-syn match notePound             /#\([^#]\{-}\)#/
-hi link notePound               Red
-
-syn match noteStar               /\*/
-hi link noteStar                 Magenta
 syn match noteStars              /\*\([^\*]\{-}\)\*/
-hi link noteStars                Magenta
+hi link noteStars                SubMagenta
+
+syn match noteDollars            /\$\([^\$]\{-}\)\$/
+hi link noteDollars              SubGreen
+
+syn match notePound              /#\([^#]\{-}\)#/
+hi link notePound                Red
 
 syn match noteExclamation        /\!\([^\!]\{-}\)\!/
 hi link noteExclamation          SubYellow
@@ -79,29 +74,10 @@ syn match noteBacktick           /`\([^`]\{-}\)`/
 hi link noteBacktick             Green
 
 syn match noteCarrot             /\^\([^\^]\{-}\)\^/
-hi link noteCarrot               Red
-
-" syn match notePercent          /%\([^%]\{-}\)%/ conceal cchar=╬
-syn match notePercent            /%/
-hi link notePercent              Yellow
-syn match notePercents           /%\([^%]\{-}\)%/ conceal cchar=¤
-hi link notePercents             Yellow
+hi link noteCarrot               Yellow
 
 syn match noteConceal            "¤"
-hi link noteConceal              Yellow
-
-" line breaks (must be after oneline groups)
-syn match noteLineTilde          /\~\~\~/
-hi link noteLineTilde            SubBlue
-
-syn match noteLineDashed         /\-\-\-/
-hi link noteLineDashed           Yellow
-
-syn match noteLineEquals         /===/
-hi link noteLineEquals           SubCyan
-
-syn match noteLineStars          /\*\*\*/
-hi link noteLineStars            Magenta
+hi link noteConceal              SubGreen
 
 " multiline groups
 syn region noteCodeBlock start=/```/ end=/```/ keepend
@@ -111,34 +87,32 @@ syn region noteComment start=/\/\*\*/ end=/\*\*\//   contains=noteTodo
 hi link noteComment       SubGreen
 
 " special
-" syn match noteTitle            /^\s*\#\#.*$/
-" hi link noteTitle              Red
+syn match noteTitle            /^\s*\#\#.*$/
+hi link noteTitle              SubRed
 
+syn match noteUrl              /\(https\?\):\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
+hi link noteUrl                SubMagenta
 
-" syn match noteGroupTitle            /^\s*\#\#\s*[a-z]\+/
-" hi link noteGroupTitle              Blue
-"
+syn match noteLink             /\(file\):\/\/\/[a-z0-9\-\.\/]\+/
+hi link noteLink               SubMagenta
 
-" syn match noteLink            /\(asdf\):\/\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
-syn match noteUrl            /\(https\?\):\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
-hi link noteUrl              SubMagenta
-
-syn match noteLink            /\(file\):\/\/\/[a-z0-9\-\.\/]\+/
-hi link noteLink              SubMagenta
-
-syn match noteCommentLine     /^\s*\/\/.*$/   contains=noteTodo
-hi link noteCommentLine       Comment
+syn match noteCommentLine      /^\s*\/\/.*$/   contains=noteTodo
+hi link noteCommentLine        Comment
 
 syn match noteArrow            /\-\->\|<\-\-/
 hi link noteArrow              Magenta
+
+syn match noteMention          /@\S\+/
+hi link noteMention            Yellow
+
+syn match noteMoney            /\$[0-9]\+\.[0-9][0-9]\([^0-9A-Za-z]\|$\)/
+hi link noteMoney              SubGreen
 
 " syn match noteCheckbox         /(\zs[^)]\+\ze)/
 " syntax match noteCheckbox      /\%(\(\zs[^)]\+\ze\)\)/ contained
 " hi link noteCheckbox           Yellow
 
-syn region noteBlock matchgroup=noteDelimiter start="\!\?\[" end="\]\ze.*:\s*{$" contains=noteAngles,noteParens,notePipe,notenotePound,noteExclamation,noteDollar,noteCarrot,noteTilde,notePercent,noteStar,noteBacktick,@Spell oneline
-syn region noteBlock matchgroup=noteDelimiter start="\!\?<" end=">\ze.*:\s*{$" contains=noteBrackets,noteParens,notePipe,notePound,noteExclamation,noteDollar,noteCarrot,noteTilde,notePercent,noteStar,noteBacktick,@Spell oneline
-syn region noteBlock matchgroup=noteDelimiter start="\!\?(" end=")\ze.*:\s*{$" contains=noteBrackets,noteAngles,notePipe,notePound,noteExclamation,noteDollar,noteCarrot,noteTilde,notePercent,noteStar,noteBacktick,@Spell oneline
+syn region noteBlock matchgroup=noteDelimiter start="\!\?\[" end="\]\ze.*:\s*{$" contains=noteAngles,noteParens,notePipe,notePound,noteExclamation,noteDollar,noteCarrot,noteTilde,notePercent,noteStar,noteBacktick,@Spell oneline
 hi link noteBlock         Magenta
 hi link noteDelimiter     SubBlue
 

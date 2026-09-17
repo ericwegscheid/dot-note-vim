@@ -1,8 +1,8 @@
 # dot-note-vim
 
 A Vim plugin for the `note` filetype: a plain-text format built out of
-nestable, titled blocks. Includes syntax highlighting, folding, and
-block-editing commands.
+nestable, titled blocks. Includes syntax highlighting and block-editing
+commands.
 
 ## Installation
 
@@ -58,15 +58,6 @@ e.g. `nmap <buffer> <your-key> <Plug>(note-create-block)`.
 |------------|------|------------------------------|------------------------------------------------------------|
 | `<leader>[`| n, i | `(note-create-block)`        | Wrap the current line in a block, or insert an empty one   |
 | `vib`      | n    | `(note-select-block)`        | Visually select the block enclosing the cursor              |
-| `za`       | n    | `(note-squish)`              | Fold every block in the buffer                               |
-| `zoa`      | n    | `(note-unsquish)`            | Open every fold in the buffer                                |
-
-## Configuration
-
-| Variable                 | Default          | Description                                                        |
-|---------------------------|------------------|----------------------------------------------------------------------|
-| `g:note_squish_pattern`   | `'^\s*\[.*\]:.*\s{'` | Regex used to find block headers when folding                    |
-| `g:note_auto_squish`      | `1`              | Fold every block automatically when a `.note` buffer is first read |
 
 ## License
 

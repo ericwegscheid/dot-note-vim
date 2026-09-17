@@ -1,4 +1,4 @@
-*note.txt*    Syntax, folding, and block editing for `.note` files
+*note.txt*    Syntax and block editing for `.note` files
 
 Author:  Eric Wegscheid <ericwegscheid@mailfence.com>
 License: See |note-license|
@@ -9,16 +9,15 @@ CONTENTS                                                       *note-contents*
     1. Introduction ........................ |note-introduction|
     2. The note format ..................... |note-format|
     3. Mappings ............................. |note-mappings|
-    4. Configuration ........................ |note-configuration|
-    5. Syntax groups ........................ |note-syntax|
-    6. License ............................... |note-license|
+    4. Syntax groups ........................ |note-syntax|
+    5. License ............................... |note-license|
 
 ==============================================================================
 1. Introduction                                            *note-introduction*
 
-This plugin adds syntax highlighting, folding, and a handful of editing
-commands for `.note` files: plain-text notes built out of nestable,
-titled blocks.
+This plugin adds syntax highlighting and a handful of editing commands
+for `.note` files: plain-text notes built out of nestable, titled
+blocks.
 
 The `note` filetype is set automatically for any `*.note` file.
 
@@ -66,29 +65,8 @@ yourself first):
     vib        (n)     *note-select-block*
         Visually select the block enclosing the cursor.
 
-    za         (n)      *note-squish*
-        Fold every block in the buffer. Also run once automatically when
-        a `.note` buffer is first read, unless |g:note_auto_squish| is 0.
-
-    zoa        (n)      *note-unsquish*
-        Open every fold in the buffer.
-
 ==============================================================================
-4. Configuration                                            *note-configuration*
-
-                                                          *g:note_squish_pattern*
-g:note_squish_pattern~
-    Vim regex used to find block headers when folding. Defaults to: >
-
-        '^\s*\[.*\]:.*\s{'
-<
-                                                            *g:note_auto_squish*
-g:note_auto_squish~
-    When non-zero (the default), fold every block automatically the
-    first time a `.note` buffer is read.
-
-==============================================================================
-5. Syntax groups                                                  *note-syntax*
+4. Syntax groups                                                  *note-syntax*
 
     noteTitle          ## Title
     noteListItem        - item / * item / + item
@@ -111,11 +89,12 @@ g:note_auto_squish~
     noteCommentLine     // line comment
     noteUrl / noteLink  http(s):// and file:/// links
     noteArrow           --> and <--
+    noteMention         @mention (runs until the next whitespace)
 
 See examples/syntax-examples.note for a working example of each group.
 
 ==============================================================================
-6. License                                                        *note-license*
+5. License                                                        *note-license*
 
 This plugin is distributed under the GNU General Public License v3, see
 the LICENSE file. syntax/note.vim carries its own MIT header from the

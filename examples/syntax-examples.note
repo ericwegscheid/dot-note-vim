@@ -5,6 +5,11 @@
 ## Titles
 
 ## This whole line is a title
+
+  This is an indented paragraph. That has a few short sentences.
+  The sentences describe what the paragraph is, an intended one,
+  as well as contains a few short sentences.
+
   ## Titles may be indented and still match
 
 ## Lists
@@ -14,27 +19,19 @@
 + plus item
   - nested dash item
     * nested star item
+      + nested plus item
 
 ## Inline emphasis
 
-*bold text*
 ~strikethrough text~
-`inline code`
 $highlighted text$
+*bold text*
+`inline code`
 #alert text#
 !warning text!
 ^flagged text^
-%percent text%
 
 Emphasis markers also render as bare punctuation when not paired: * ~ ` $ # ! ^ %
-
-## Line breaks
-
-Three consecutive characters on their own act as a horizontal rule:
-
-===
-~~~
-***
 
 ## Fenced code blocks
 
@@ -64,6 +61,11 @@ end <-- start
 
 TODO this line contains a bare TODO marker, highlighted anywhere it appears
 
+## Mentions
+
+@alice please review this
+assigned to @bob.smith and @carol-jones
+
 ## Checklists (plain text convention, no dedicated syntax group)
 
 [ ] unchecked
@@ -72,25 +74,8 @@ TODO this line contains a bare TODO marker, highlighted anywhere it appears
 
 ## Blocks
 
-Blocks are titled regions delimited by a matching bracket pair, a colon,
-and an opening brace, closed by a bare `}`. Fold them all with `za`
-(bound to note#squish()) and unfold them all with `zoa`
-(note#unsquish()).
-
-[a bracket-titled block]: {
-  content inside a bracket block
-}
-
-<an angle-titled block>: {
-  content inside an angle block
-}
-
-(a paren-titled block): {
-  content inside a paren block
-}
-
-[a block title | with a pipe separator](and a paren aside) <and an angle aside>: {
-  block titles may mix delimiter types and inline emphasis like *this* or `this`
+[blocks use brackets]: {
+  content inside a block
 }
 
 [nested blocks]: {
@@ -101,3 +86,19 @@ and an opening brace, closed by a bare `}`. Fold them all with `za`
     }
   }
 }
+
+## Pipes
+
+| pipes are always just blue | add one anywhere | and it will just be blue
+| however it does not !TRUMP|INLINE! emphasis
+
+## Brackets, Braces, Angles, Parens
+
+[these are]{also just always going}(to be blue)
+
+## Money
+
+valid $1234.99, $ or $0.10
+$invalid $ $123. $123 $123.456
+
+
