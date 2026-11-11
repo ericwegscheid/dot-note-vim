@@ -93,7 +93,7 @@ hi link noteTitle              SubRed
 syn match noteUrl              /\(https\?\):\/\/\([a-z0-9\-]\+\.\)\+[a-z0-9\-]\+[^ ]\+/
 hi link noteUrl                SubMagenta
 
-syn match noteLink             /\(file\):\/\/\/[a-z0-9\-\.\/]\+/
+syn match noteLink             /\(file\):\/\/\/[a-z0-9\-\.\/ ]\+/
 hi link noteLink               SubMagenta
 
 syn match noteCommentLine      /^\s*\/\/.*$/   contains=noteTodo
@@ -112,7 +112,7 @@ hi link noteMoney              SubGreen
 " syntax match noteCheckbox      /\%(\(\zs[^)]\+\ze\)\)/ contained
 " hi link noteCheckbox           Yellow
 
-syn region noteBlock matchgroup=noteDelimiter start="\!\?\[" end="\]\ze.*:\s*{$" contains=noteAngles,noteParens,notePipe,notePound,noteExclamation,noteDollar,noteCarrot,noteTilde,notePercent,noteStar,noteBacktick,@Spell oneline
+syn region noteBlock matchgroup=noteDelimiter start="\!\?\[" end="\]\ze.*:\s*{$" contains=noteAngles,noteParens,notePipe,notePound,noteExclamation,noteDollars,noteCarrot,noteTildes,noteStars,noteBacktick,@Spell oneline
 hi link noteBlock         Magenta
 hi link noteDelimiter     SubBlue
 
